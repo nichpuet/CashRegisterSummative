@@ -60,14 +60,13 @@ namespace CashRegisterSummative
 
         private void changeButton_Click(object sender, EventArgs e)
         {
-            double amountRecieved;
-            double changeDue;
             try
             {
-                amountRecieved = Convert.ToInt16(recievedInput.Text);
-                changeDue = amountRecieved - afterTaxCost;
+                custBill = Convert.ToInt16(recievedInput.Text);
+                custChange = custBill - afterTaxCost;
 
-                changeOutput.Text = "Change Due: " + changeDue.ToString("C");
+
+                changeOutput.Text = "Change Due: " + custChange.ToString("C");
             }
             catch
             {
