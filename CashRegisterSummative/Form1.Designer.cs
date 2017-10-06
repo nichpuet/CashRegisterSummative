@@ -36,12 +36,19 @@
             this.fryLabel = new System.Windows.Forms.Label();
             this.drinkLabel = new System.Windows.Forms.Label();
             this.costOutput = new System.Windows.Forms.Label();
-            this.reciptLabel = new System.Windows.Forms.Label();
             this.recievedInput = new System.Windows.Forms.TextBox();
             this.recievedLabel = new System.Windows.Forms.Label();
             this.changeButton = new System.Windows.Forms.Button();
             this.changeOutput = new System.Windows.Forms.Label();
             this.reciptButton = new System.Windows.Forms.Button();
+            this.orderButton = new System.Windows.Forms.Button();
+            this.reciptLabel = new System.Windows.Forms.Label();
+            this.burgerCosts = new System.Windows.Forms.Label();
+            this.fryCost = new System.Windows.Forms.Label();
+            this.drinkCost = new System.Windows.Forms.Label();
+            this.burgerNumber = new System.Windows.Forms.Label();
+            this.fryNumber = new System.Windows.Forms.Label();
+            this.drinkNumber = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // burgerInput
@@ -111,18 +118,6 @@
             this.costOutput.TabIndex = 7;
             this.costOutput.Text = "Calculate Cost First";
             // 
-            // reciptLabel
-            // 
-            this.reciptLabel.BackColor = System.Drawing.Color.Snow;
-            this.reciptLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.reciptLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.reciptLabel.Location = new System.Drawing.Point(229, 9);
-            this.reciptLabel.Name = "reciptLabel";
-            this.reciptLabel.Size = new System.Drawing.Size(143, 233);
-            this.reciptLabel.TabIndex = 8;
-            this.reciptLabel.Text = "Recipt";
-            this.reciptLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // recievedInput
             // 
             this.recievedInput.Location = new System.Drawing.Point(99, 185);
@@ -168,12 +163,104 @@
             this.reciptButton.UseVisualStyleBackColor = true;
             this.reciptButton.Click += new System.EventHandler(this.reciptButton_Click);
             // 
+            // orderButton
+            // 
+            this.orderButton.Location = new System.Drawing.Point(229, 245);
+            this.orderButton.Name = "orderButton";
+            this.orderButton.Size = new System.Drawing.Size(143, 23);
+            this.orderButton.TabIndex = 14;
+            this.orderButton.Text = "New Order";
+            this.orderButton.UseVisualStyleBackColor = true;
+            this.orderButton.Visible = false;
+            this.orderButton.Click += new System.EventHandler(this.orderButton_Click);
+            // 
+            // reciptLabel
+            // 
+            this.reciptLabel.BackColor = System.Drawing.Color.Snow;
+            this.reciptLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.reciptLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.reciptLabel.Location = new System.Drawing.Point(229, 9);
+            this.reciptLabel.Name = "reciptLabel";
+            this.reciptLabel.Size = new System.Drawing.Size(156, 233);
+            this.reciptLabel.TabIndex = 8;
+            this.reciptLabel.Text = "Recipt";
+            this.reciptLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // burgerCosts
+            // 
+            this.burgerCosts.AutoSize = true;
+            this.burgerCosts.BackColor = System.Drawing.Color.Snow;
+            this.burgerCosts.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.burgerCosts.Location = new System.Drawing.Point(329, 38);
+            this.burgerCosts.Name = "burgerCosts";
+            this.burgerCosts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.burgerCosts.Size = new System.Drawing.Size(0, 13);
+            this.burgerCosts.TabIndex = 15;
+            // 
+            // fryCost
+            // 
+            this.fryCost.AutoSize = true;
+            this.fryCost.BackColor = System.Drawing.Color.Snow;
+            this.fryCost.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fryCost.Location = new System.Drawing.Point(329, 51);
+            this.fryCost.Name = "fryCost";
+            this.fryCost.Size = new System.Drawing.Size(0, 13);
+            this.fryCost.TabIndex = 16;
+            // 
+            // drinkCost
+            // 
+            this.drinkCost.AutoSize = true;
+            this.drinkCost.BackColor = System.Drawing.Color.Snow;
+            this.drinkCost.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drinkCost.Location = new System.Drawing.Point(329, 64);
+            this.drinkCost.Name = "drinkCost";
+            this.drinkCost.Size = new System.Drawing.Size(0, 13);
+            this.drinkCost.TabIndex = 17;
+            // 
+            // burgerNumber
+            // 
+            this.burgerNumber.AutoSize = true;
+            this.burgerNumber.BackColor = System.Drawing.Color.Snow;
+            this.burgerNumber.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.burgerNumber.Location = new System.Drawing.Point(289, 38);
+            this.burgerNumber.Name = "burgerNumber";
+            this.burgerNumber.Size = new System.Drawing.Size(7, 13);
+            this.burgerNumber.TabIndex = 18;
+            this.burgerNumber.Text = "\r\n";
+            // 
+            // fryNumber
+            // 
+            this.fryNumber.AutoSize = true;
+            this.fryNumber.BackColor = System.Drawing.Color.Snow;
+            this.fryNumber.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fryNumber.Location = new System.Drawing.Point(289, 51);
+            this.fryNumber.Name = "fryNumber";
+            this.fryNumber.Size = new System.Drawing.Size(0, 13);
+            this.fryNumber.TabIndex = 19;
+            // 
+            // drinkNumber
+            // 
+            this.drinkNumber.AutoSize = true;
+            this.drinkNumber.BackColor = System.Drawing.Color.Snow;
+            this.drinkNumber.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drinkNumber.Location = new System.Drawing.Point(289, 64);
+            this.drinkNumber.Name = "drinkNumber";
+            this.drinkNumber.Size = new System.Drawing.Size(0, 13);
+            this.drinkNumber.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Coral;
             this.ClientSize = new System.Drawing.Size(384, 270);
+            this.Controls.Add(this.drinkNumber);
+            this.Controls.Add(this.fryNumber);
+            this.Controls.Add(this.burgerNumber);
+            this.Controls.Add(this.drinkCost);
+            this.Controls.Add(this.fryCost);
+            this.Controls.Add(this.burgerCosts);
+            this.Controls.Add(this.orderButton);
             this.Controls.Add(this.reciptButton);
             this.Controls.Add(this.changeOutput);
             this.Controls.Add(this.changeButton);
@@ -205,12 +292,19 @@
         private System.Windows.Forms.Label fryLabel;
         private System.Windows.Forms.Label drinkLabel;
         private System.Windows.Forms.Label costOutput;
-        private System.Windows.Forms.Label reciptLabel;
         private System.Windows.Forms.TextBox recievedInput;
         private System.Windows.Forms.Label recievedLabel;
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Label changeOutput;
         private System.Windows.Forms.Button reciptButton;
+        private System.Windows.Forms.Button orderButton;
+        private System.Windows.Forms.Label reciptLabel;
+        private System.Windows.Forms.Label burgerCosts;
+        private System.Windows.Forms.Label fryCost;
+        private System.Windows.Forms.Label drinkCost;
+        private System.Windows.Forms.Label burgerNumber;
+        private System.Windows.Forms.Label fryNumber;
+        private System.Windows.Forms.Label drinkNumber;
     }
 }
 
