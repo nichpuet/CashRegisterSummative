@@ -49,6 +49,8 @@
             this.burgerNumber = new System.Windows.Forms.Label();
             this.fryNumber = new System.Windows.Forms.Label();
             this.drinkNumber = new System.Windows.Forms.Label();
+            this.beforeTaxOutput = new System.Windows.Forms.Label();
+            this.taxOutput = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // burgerInput
@@ -248,12 +250,34 @@
             this.drinkNumber.Size = new System.Drawing.Size(0, 13);
             this.drinkNumber.TabIndex = 20;
             // 
+            // beforeTaxOutput
+            // 
+            this.beforeTaxOutput.AutoSize = true;
+            this.beforeTaxOutput.BackColor = System.Drawing.Color.Snow;
+            this.beforeTaxOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.beforeTaxOutput.Location = new System.Drawing.Point(337, 80);
+            this.beforeTaxOutput.Name = "beforeTaxOutput";
+            this.beforeTaxOutput.Size = new System.Drawing.Size(0, 13);
+            this.beforeTaxOutput.TabIndex = 21;
+            // 
+            // taxOutput
+            // 
+            this.taxOutput.AutoSize = true;
+            this.taxOutput.BackColor = System.Drawing.Color.Snow;
+            this.taxOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.taxOutput.Location = new System.Drawing.Point(337, 93);
+            this.taxOutput.Name = "taxOutput";
+            this.taxOutput.Size = new System.Drawing.Size(0, 13);
+            this.taxOutput.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Coral;
             this.ClientSize = new System.Drawing.Size(384, 270);
+            this.Controls.Add(this.taxOutput);
+            this.Controls.Add(this.beforeTaxOutput);
             this.Controls.Add(this.drinkNumber);
             this.Controls.Add(this.fryNumber);
             this.Controls.Add(this.burgerNumber);
@@ -305,6 +329,8 @@
         private System.Windows.Forms.Label burgerNumber;
         private System.Windows.Forms.Label fryNumber;
         private System.Windows.Forms.Label drinkNumber;
+        private System.Windows.Forms.Label beforeTaxOutput;
+        private System.Windows.Forms.Label taxOutput;
     }
 }
 
