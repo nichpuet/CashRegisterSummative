@@ -1,4 +1,5 @@
-﻿using System;
+﻿// Nick Puetz | Cash Register Summative | 11/10/17
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace CashRegisterSummative
 {
     public partial class Form1 : Form
     {
+        // declares constants and different changing variables for global use
         const double TAX = 1.13;
         const double BURGER_PRICE = 2.49;
         const double FRY_PRICE = 1.89;
@@ -38,7 +40,8 @@ namespace CashRegisterSummative
 
         private void calculateButton_Click(object sender, EventArgs e)
         {
-
+            //takes the values in the text boxes and uses them to calculate the cost of the meal at various points.
+            // Also uses try and catch to make sure the values entered are valid.
             try
             {
                 burgerOrder = Convert.ToInt16(burgerInput.Text);
@@ -64,6 +67,8 @@ namespace CashRegisterSummative
 
         private void changeButton_Click(object sender, EventArgs e)
         {
+            // Takes the inputs for change and calculates the customer change as well as the bills tendered.
+            //Again uses try and catch to validate inputs
             try
             {
                 custBill = Convert.ToDouble(recievedInput.Text);
@@ -80,6 +85,8 @@ namespace CashRegisterSummative
 
         private void reciptButton_Click(object sender, EventArgs e)
         {
+            //Makes the button to print recipt invisible and make the new order button visible.
+            // also declares all the different fonts, graphics, sounds, and random numbers to use in the recipt.
             reciptButton.Visible = false;
             orderButton.Visible = true;
             reciptLabel.Visible = false;
@@ -91,86 +98,46 @@ namespace CashRegisterSummative
             int randOrder = rnd.Next(1000, 9999);
             SoundPlayer reciptPlayer = new SoundPlayer(Properties.Resources.reciptSound);
 
-            int flag = 0;
-
-            for (int x = 1; x<= 10; x++)
-            {
-                if (flag == 0)
-                {
-                    fG.FillRectangle(fillBrush, 231, 9, 160, 232);
-                    fG.DrawString("Issa Burger", reciptFont, reciptBrush, 265, 13);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if (flag == 1)
-                {
-                    fG.DrawString("Burgers    " + "x" + burgerOrder + "    " + burgerDue.ToString("C"), reciptFont, reciptBrush, 236, 38);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if(flag == 2)
-                {
-                    fG.DrawString("Fries      " + "x" + fryOrder + "    " + drinkDue.ToString("C"), reciptFont, reciptBrush, 236, 50);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if (flag == 3)
-                {
-                    fG.DrawString("Drinks     " + "x" + drinkOrder + "    " + drinkDue.ToString("C"), reciptFont, reciptBrush, 236, 62);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if(flag == 4)
-                {
-                    fG.DrawString("Total Before Tax: " + preTaxCost.ToString("C"), reciptFont, reciptBrush, 236, 80);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if (flag == 5)
-                {
-                    fG.DrawString("Tax Cost:         " + taxCost.ToString("C"), reciptFont, reciptBrush, 236, 92);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if (flag == 6)
-                {
-                    fG.DrawString("Final Total:      " + afterTaxCost.ToString("C"), reciptFont, reciptBrush, 236, 104);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if (flag == 7)
-                {
-                    fG.DrawString("Change Tendered: " + custBill.ToString("C"), reciptFont, reciptBrush, 236, 122);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if (flag == 8)
-                {
-                    fG.DrawString("Change Due:      " + custChange.ToString("C"), reciptFont, reciptBrush, 236, 140);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-               if (flag == 9)
-                {
-                    fG.DrawString("Order #" + randOrder, reciptFont, reciptBrush, 265, 164);
-                    flag++;
-                    Thread.Sleep(1000);
-                    reciptPlayer.Play();
-                }
-            }
+            //prints the recipt background and the text with a second delay between with a sound with each.
+            fG.FillRectangle(fillBrush, 231, 9, 160, 232);
+            reciptPlayer.Play();
+            fG.DrawString("Issa Burger", reciptFont, reciptBrush, 265, 13);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Burgers    " + "x" + burgerOrder + "    " + burgerDue.ToString("C"), reciptFont, reciptBrush, 236, 38);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Fries      " + "x" + fryOrder + "    " + drinkDue.ToString("C"), reciptFont, reciptBrush, 236, 50);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Drinks     " + "x" + drinkOrder + "    " + drinkDue.ToString("C"), reciptFont, reciptBrush, 236, 62);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Total Before Tax: " + preTaxCost.ToString("C"), reciptFont, reciptBrush, 236, 80);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Tax Cost:         " + taxCost.ToString("C"), reciptFont, reciptBrush, 236, 92);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Final Total:      " + afterTaxCost.ToString("C"), reciptFont, reciptBrush, 236, 104);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Change Tendered: " + custBill.ToString("C"), reciptFont, reciptBrush, 236, 122);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Change Due:      " + custChange.ToString("C"), reciptFont, reciptBrush, 236, 140);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+            fG.DrawString("Order #" + randOrder, reciptFont, reciptBrush, 265, 164);
+            Thread.Sleep(1000);
+            reciptPlayer.Play();
+               
+            
         }
 
         private void orderButton_Click(object sender, EventArgs e)
         {
+            //Clears the input boxes and sets text and buttons back to their original states
             reciptButton.Visible = true;
             orderButton.Visible = false;
             reciptLabel.Visible = true;
