@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.burgerInput = new System.Windows.Forms.TextBox();
             this.fryInput = new System.Windows.Forms.TextBox();
             this.drinkInput = new System.Windows.Forms.TextBox();
@@ -59,6 +60,7 @@
             this.burgerInput.Name = "burgerInput";
             this.burgerInput.Size = new System.Drawing.Size(100, 20);
             this.burgerInput.TabIndex = 0;
+            this.burgerInput.Text = "0";
             // 
             // fryInput
             // 
@@ -66,6 +68,7 @@
             this.fryInput.Name = "fryInput";
             this.fryInput.Size = new System.Drawing.Size(100, 20);
             this.fryInput.TabIndex = 1;
+            this.fryInput.Text = "0";
             // 
             // drinkInput
             // 
@@ -73,6 +76,7 @@
             this.drinkInput.Name = "drinkInput";
             this.drinkInput.Size = new System.Drawing.Size(100, 20);
             this.drinkInput.TabIndex = 2;
+            this.drinkInput.Text = "0";
             // 
             // calculateButton
             // 
@@ -126,6 +130,7 @@
             this.recievedInput.Name = "recievedInput";
             this.recievedInput.Size = new System.Drawing.Size(100, 20);
             this.recievedInput.TabIndex = 9;
+            this.recievedInput.Text = "0";
             // 
             // recievedLabel
             // 
@@ -299,8 +304,9 @@
             this.Controls.Add(this.drinkInput);
             this.Controls.Add(this.fryInput);
             this.Controls.Add(this.burgerInput);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Issa Burger";
             this.ResumeLayout(false);
             this.PerformLayout();
 
