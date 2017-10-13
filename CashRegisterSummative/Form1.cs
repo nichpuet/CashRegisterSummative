@@ -20,6 +20,7 @@ namespace CashRegisterSummative
         const double BURGER_PRICE = 2.49;
         const double FRY_PRICE = 1.89;
         const double DRINK_PRICE = 0.99;
+
         double preTaxCost = 0;
         double taxCost = 0;
         double afterTaxCost = 0;
@@ -28,6 +29,7 @@ namespace CashRegisterSummative
         double burgerDue;
         double fryDue;
         double drinkDue;
+
         int burgerOrder;
         int fryOrder;
         int drinkOrder;
@@ -74,7 +76,6 @@ namespace CashRegisterSummative
                 custBill = Convert.ToDouble(recievedInput.Text);
                 custChange = custBill - afterTaxCost;
 
-
                 changeOutput.Text = "Change Due: " + custChange.ToString("C");
             }
             catch
@@ -97,43 +98,62 @@ namespace CashRegisterSummative
             Random rnd = new Random();
             int randOrder = rnd.Next(1000, 9999);
             SoundPlayer reciptPlayer = new SoundPlayer(Properties.Resources.reciptSound);
+            string date;
+            date = DateTime.Now.ToString("dd.MM.yyyy");
             int time = 1000;
 
             //prints the recipt background and the text with a second delay between with a sound with each.
             fG.FillRectangle(fillBrush, 231, 9, 160, 232);
             reciptPlayer.Play();
+
             fG.DrawString("Issa Burger", reciptFont, reciptBrush, 265, 13);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Burgers    " + "x" + burgerOrder + "    " + burgerDue.ToString("C"), reciptFont, reciptBrush, 236, 38);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Fries      " + "x" + fryOrder + "    " + drinkDue.ToString("C"), reciptFont, reciptBrush, 236, 50);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Drinks     " + "x" + drinkOrder + "    " + drinkDue.ToString("C"), reciptFont, reciptBrush, 236, 62);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Total Before Tax: " + preTaxCost.ToString("C"), reciptFont, reciptBrush, 236, 80);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Tax Cost:         " + taxCost.ToString("C"), reciptFont, reciptBrush, 236, 92);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Final Total:      " + afterTaxCost.ToString("C"), reciptFont, reciptBrush, 236, 104);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Change Tendered: " + custBill.ToString("C"), reciptFont, reciptBrush, 236, 122);
             Thread.Sleep(time);
             reciptPlayer.Play();
+
             fG.DrawString("Change Due:      " + custChange.ToString("C"), reciptFont, reciptBrush, 236, 140);
             Thread.Sleep(time);
             reciptPlayer.Play();
-            fG.DrawString("Order #" + randOrder, reciptFont, reciptBrush, 265, 164);
+
+            fG.DrawString("Order  #" + randOrder, reciptFont, reciptBrush, 265, 164);
             Thread.Sleep(time);
             reciptPlayer.Play();
-               
-            
+
+            fG.DrawString(" "+date, reciptFont, reciptBrush, 265, 176);
+            Thread.Sleep(time);
+            reciptPlayer.Play();
+
+            fG.DrawString("Have a Nice Day", reciptFont, reciptBrush, 255, 200);
+            Thread.Sleep(time);
+            reciptPlayer.Play();
+
         }
 
         private void orderButton_Click(object sender, EventArgs e)
@@ -143,12 +163,14 @@ namespace CashRegisterSummative
             reciptButton.Visible = true;
             orderButton.Visible = false;
             reciptLabel.Visible = true;
+
             costOutput.Text = "Calculate Cost First";
             changeOutput.Text = "Calculate Change First";
-            burgerInput.Text = String.Empty;
-            fryInput.Text = String.Empty;
-            drinkInput.Text = String.Empty;
-            recievedInput.Text = String.Empty;
+
+            burgerInput.Text = Convert.ToString("0");
+            fryInput.Text = Convert.ToString("0");
+            drinkInput.Text = Convert.ToString("0");
+            recievedInput.Text = Convert.ToString("0");
 
             preTaxCost = 0;
             taxCost = 0;
